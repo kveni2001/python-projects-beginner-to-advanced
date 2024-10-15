@@ -1,0 +1,34 @@
+import random 
+bot_count=0
+user_count=0
+i=0
+n=5
+rotation=["rock", "scissor", "paper"] 
+while i<5:
+    print("Chance left:",n-i)
+    r=random.randrange(3)
+    bot=rotation[r]
+    user=input("Enter rock or scissor or paper: ")
+    if bot=="rock":
+        if user == "scissor":
+            bot_count+=1
+        elif user == "paper":
+            user_count+=1
+    elif bot=="scissor":
+        if user == "paper":
+            bot_count+=1
+        elif user == "rock":
+            user_count+=1
+    elif bot=="paper":
+        if user == "rock":
+            bot_count+=1
+        elif user == "scissor":
+            user_count+=1
+    print(f"my choice is {bot} and my score {bot_count}, Your choice is {user} and your score {user_count}")
+    i+=1
+if user_count > bot_count:
+    print("You won the game")
+elif bot_count > user_count:
+    print("You loss the game")
+else:
+    print("Match Draw")
